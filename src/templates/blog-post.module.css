@@ -31,3 +31,8 @@
 	color: #2660a4;
 	font-weight: 600;
 }
+
+.content a:hover {
+	background-color: #2660a4;
+	color: #dbf9f4;
+}
