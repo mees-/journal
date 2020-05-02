@@ -1,4 +1,10 @@
 .title {
+	color: #ff9f1c;
+	margin: 0;
+}
+
+.meta {
+	margin: 20px 0px;
 }
 
 .date,
@@ -9,6 +15,7 @@
 }
 
 .date {
+	margin-top: 0;
 	margin-bottom: 3px;
 }
 

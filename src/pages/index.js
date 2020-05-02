@@ -7,7 +7,7 @@ import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 import PostList from "../components/postList/postList"
 
-const BlogIndex = ({ data, location }) => {
+const BlogIndex = () => {
 	return (
 		<Layout>
 			<SEO title="Home" />

@@ -1,22 +1,26 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
-import { title, date, time, content } from "./blog-post.module.css"
+import { title, date, time, content, meta } from "./blog-post.module.css"
 
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
+const BlogPostTemplate = ({ data, location }) => {
 	const post = data.markdownRemark
 	const siteTitle = data.site.siteMetadata.title
 
 	return (
 		<Layout location={location} title={siteTitle}>
 			<SEO title={post.frontmatter.title} />
-			<h2 className={title}>{post.frontmatter.title}</h2>
-			<h4 className={date}>{post.frontmatter.date}</h4>
-			<br />
-			<h5 className={time}>{post.frontmatter.time}</h5>
+			<h2 className={title}>
+				<Link to="/">{post.frontmatter.title}</Link>
+			</h2>
+			<div className={meta}>
+				<h4 className={date}>{post.frontmatter.date}</h4>
+				<br />
+				<h5 className={time}>{post.frontmatter.time}</h5>
+			</div>
 			<div
 				className={content}
 				dangerouslySetInnerHTML={{ __html: post.html }}
