@@ -1,0 +1,21 @@
+.title {
+}
+
+.date,
+.time {
+	color: #dbf9f4;
+	background-color: #2660a4;
+	display: inline-block;
+}
+
+.date {
+	margin-bottom: 3px;
+}
+
+.time {
+	margin: 0;
+}
+
+.content p:first-child {
+	margin-top: 5px;
+}
