@@ -5,7 +5,7 @@ import "../style.css"
 
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
-import PostList from "../components/postList/postList"
+import PostList from "../components/entryList/entryList"
 
 const BlogIndex = () => {
 	return (
