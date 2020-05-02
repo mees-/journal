@@ -26,3 +26,8 @@
 .content p:first-child {
 	margin-top: 5px;
 }
+
+.content a {
+	color: #2660a4;
+	font-weight: 600;
+}
