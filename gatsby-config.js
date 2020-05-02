@@ -1,5 +1,60 @@
 const description = `A journal/blog maintained by Mees van Dijk`
 
+const plugins = [
+	{
+		resolve: `gatsby-source-filesystem`,
+		options: {
+			path: `${__dirname}/content/posts`,
+			name: `blog`,
+		},
+	},
+	{
+		resolve: `gatsby-transformer-remark`,
+		options: {
+			plugins: [
+				`gatsby-remark-prismjs`,
+				`gatsby-remark-copy-linked-files`,
+				`gatsby-remark-smartypants`,
+			],
+		},
+	},
+	{
+		resolve: `gatsby-plugin-google-analytics`,
+		options: {
+			//trackingId: `ADD YOUR TRACKING ID HERE`,
+		},
+	},
+	{
+		resolve: `gatsby-plugin-manifest`,
+		options: {
+			name: `Mees' journal`,
+			short_name: `Journal`,
+			description,
+			start_url: `/`,
+			background_color: `#fff5f0`,
+			theme_color: `#ff9f1c`,
+			icon: `static/icon.png`,
+			legacy: true,
+			lang: `en`,
+			display: `minimal-ui`,
+		},
+	},
+	`gatsby-plugin-react-helmet`,
+	// this (optional) plugin enables Progressive Web App + Offline functionality
+	// To learn more, visit: https://gatsby.dev/offline
+	`gatsby-plugin-offline`,
+]
+
+if (process.env.POST_DIR) {
+	plugins.splice(1, 0, {
+		resolve: `gatsby-source-filesystem`,
+		options: {
+			path: process.env.POST_DIR,
+			name: `blog`,
+		},
+	})
+}
+
 module.exports = {
 	siteMetadata: {
 		title: `Journal`,
@@ -10,48 +65,5 @@ module.exports = {
 		},
 		description,
 	},
-	plugins: [
-		{
-			resolve: `gatsby-source-filesystem`,
-			options: {
-				path: `${__dirname}/content/posts`,
-				name: `blog`,
-			},
-		},
-		{
-			resolve: `gatsby-transformer-remark`,
-			options: {
-				plugins: [
-					`gatsby-remark-prismjs`,
-					`gatsby-remark-copy-linked-files`,
-					`gatsby-remark-smartypants`,
-				],
-			},
-		},
-		{
-			resolve: `gatsby-plugin-google-analytics`,
-			options: {
-				//trackingId: `ADD YOUR TRACKING ID HERE`,
-			},
-		},
-		{
-			resolve: `gatsby-plugin-manifest`,
-			options: {
-				name: `Mees' journal`,
-				short_name: `Journal`,
-				description,
-				start_url: `/`,
-				background_color: `#fff5f0`,
-				theme_color: `#ff9f1c`,
-				icon: `static/icon.png`,
-				legacy: true,
-				lang: `en`,
-				display: `minimal-ui`,
-			},
-		},
-		`gatsby-plugin-react-helmet`,
-		// this (optional) plugin enables Progressive Web App + Offline functionality
-		// To learn more, visit: https://gatsby.dev/offline
-		`gatsby-plugin-offline`,
-	],
+	plugins,
 }
