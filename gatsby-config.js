@@ -1,18 +1,20 @@
+const description = `A journal/blog maintained by Mees van Dijk`
+
 module.exports = {
 	siteMetadata: {
 		title: `Journal`,
 		author: {
-			name: `Kyle Mathews`,
+			name: `Mees van Dijk`,
 			email: `mees@mees.io`,
 			website: `https://mees.io`,
 		},
-		description: `A starter blog demonstrating what Gatsby can do.`,
+		description,
 	},
 	plugins: [
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
-				path: `${__dirname}/content/blog`,
+				path: `${__dirname}/content/posts`,
 				name: `blog`,
 			},
 		},
@@ -35,17 +37,21 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: `Gatsby Starter Blog`,
-				short_name: `GatsbyJS`,
+				name: `Mees' journal`,
+				short_name: `Journal`,
+				description,
 				start_url: `/`,
-				background_color: `#ffffff`,
-				theme_color: `#663399`,
+				background_color: `#fff5f0`,
+				theme_color: `#ff9f1c`,
+				icon: `static/icon.png`,
+				legacy: true,
+				lang: `en`,
 				display: `minimal-ui`,
 			},
 		},
 		`gatsby-plugin-react-helmet`,
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.dev/offline
-		// `gatsby-plugin-offline`,
+		`gatsby-plugin-offline`,
 	],
 }
