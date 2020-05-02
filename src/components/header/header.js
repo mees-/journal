@@ -1,9 +1,9 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
-import { header } from "./header.module.css"
+import { header, noUnderline } from "./header.module.css"
 
-const Header = () => {
+const Header = ({ isHome }) => {
 	const data = useStaticQuery(graphql`
 		query {
 			site {
@@ -22,7 +22,10 @@ const Header = () => {
 	return (
 		<header className={header}>
 			<h1>
-				<Link to="/" className="simple">
+				<Link
+					to="/"
+					className={["simple", isHome ? noUnderline : ""].join(" ")}
+				>
 					{data.site.siteMetadata.title}
 				</Link>
 			</h1>

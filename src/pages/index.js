@@ -9,7 +9,7 @@ import PostList from "../components/entryList/entryList"
 
 const BlogIndex = () => {
 	return (
-		<Layout>
+		<Layout isHome={true}>
 			<SEO title="Home" />
 			<PostList />
 		</Layout>

@@ -11,7 +11,7 @@ const BlogPostTemplate = ({ data, location }) => {
 	const siteTitle = data.site.siteMetadata.title
 
 	return (
-		<Layout location={location} title={siteTitle}>
+		<Layout isHome={false} title={siteTitle}>
 			<SEO title={post.frontmatter.title} />
 			<h2 className={title}>
 				<Link to="/" className="simple">

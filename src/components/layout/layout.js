@@ -4,9 +4,9 @@ import Footer from "../footer/footer"
 
 import { main } from "./layout.module.css"
 
-const Layout = ({ children }) => (
+const Layout = ({ children, isHome }) => (
 	<>
-		<Header />
+		<Header isHome={isHome} />
 		<main className={[main].join(" ")}>{children}</main>
 		<Footer />
 	</>

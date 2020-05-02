@@ -2,3 +2,8 @@
 	/* text-align: center; */
 	color: #2660a4;
 }
+
+.no-underline,
+.no-underline:hover {
+	text-decoration: none;
+}
