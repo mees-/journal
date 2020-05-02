@@ -14,7 +14,9 @@ const BlogPostTemplate = ({ data, location }) => {
 		<Layout location={location} title={siteTitle}>
 			<SEO title={post.frontmatter.title} />
 			<h2 className={title}>
-				<Link to="/">{post.frontmatter.title}</Link>
+				<Link to="/" className="simple">
+					{post.frontmatter.title}
+				</Link>
 			</h2>
 			<div className={meta}>
 				<h4 className={date}>{post.frontmatter.date}</h4>

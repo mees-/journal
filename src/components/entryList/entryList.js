@@ -32,7 +32,7 @@ const PostList = () => {
 		<ul className={list}>
 			{posts.map(({ id, slug, title, date }) => (
 				<li key={id} className={item}>
-					<Link to={slug}>
+					<Link to={slug} className="simple">
 						{title} - {date}
 					</Link>
 				</li>

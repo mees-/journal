@@ -22,7 +22,9 @@ const Header = () => {
 	return (
 		<header className={header}>
 			<h1>
-				<Link to="/">{data.site.siteMetadata.title}</Link>
+				<Link to="/" className="simple">
+					{data.site.siteMetadata.title}
+				</Link>
 			</h1>
 		</header>
 	)

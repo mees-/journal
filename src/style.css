@@ -11,8 +11,12 @@ body,
 }
 a,
 a:visited {
-	text-decoration: none;
 	color: inherit;
+}
+
+a.simple,
+a.simple:visited {
+	text-decoration: none;
 }
 
 a:hover {
