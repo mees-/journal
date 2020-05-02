@@ -6,21 +6,20 @@
 .meta {
 	margin: 20px 0px;
 }
-
-.date,
-.time {
+.meta h6,
+.meta h5,
+.meta h4,
+.meta h3,
+.meta h2,
+.meta h1 {
 	color: #dbf9f4;
 	background-color: #2660a4;
 	display: inline-block;
+	margin: 2px;
 }
 
 .date {
-	margin-top: 0;
 	margin-bottom: 3px;
-}
-
-.time {
-	margin: 0;
 }
 
 .content p:first-child {

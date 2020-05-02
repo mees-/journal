@@ -19,6 +19,8 @@ const BlogPostTemplate = ({ data, location }) => {
 				</Link>
 			</h2>
 			<div className={meta}>
+				<h4>{post.frontmatter.location}</h4>
+				<br />
 				<h4 className={date}>{post.frontmatter.date}</h4>
 				<br />
 				<h5 className={time}>{post.frontmatter.time}</h5>
