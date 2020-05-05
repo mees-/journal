@@ -51,7 +51,6 @@ const plugins = [
 						title
 						description
 						siteUrl
-						author
 					}
 				}
 			}`,
@@ -62,7 +61,6 @@ const plugins = [
 							...edge.node.frontmatter,
 							description: edge.node.excerpt,
 							date: edge.node.frontmatter.date,
-							author: site.siteMetadata.author,
 							url: join(site.siteMetadata.siteUrl, edge.node.fields.slug),
 							guid: join(site.siteMetadata.siteUrl, edge.node.fields.slug),
 							custom_elements: [{ "content:encoded": edge.node.html }],
@@ -109,10 +107,12 @@ if (process.env.POST_DIR) {
 
 module.exports = {
 	siteMetadata: {
-		title,
-		author: `Mees van Dijk`,
-		email: `mees@mees.io`,
-		website: `https://mees.io`,
+		title: `Journal`,
+		author: {
+			name: `Mees van Dijk`,
+			email: `mees@mees.io`,
+			website: `https://mees.io`,
+		},
 		description,
 		siteUrl: process.env.SITE_URL || "",
 	},

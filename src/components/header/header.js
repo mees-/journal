@@ -9,6 +9,11 @@ const Header = ({ isHome }) => {
 			site {
 				siteMetadata {
 					title
+					author {
+						name
+						email
+						website
+					}
 				}
 			}
 		}
