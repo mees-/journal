@@ -1,3 +1,6 @@
+const { join } = require("path")
+
+const title = `Journal`
 const description = `A journal/blog maintained by Mees van Dijk`
 
 const plugins = [
@@ -39,6 +42,55 @@ const plugins = [
 			display: `minimal-ui`,
 		},
 	},
+	{
+		resolve: `gatsby-plugin-feed`,
+		options: {
+			query: `{
+				site {
+					siteMetadata {
+						title
+						description
+						siteUrl
+						author
+					}
+				}
+			}`,
+			feeds: [
+				{
+					serialize: ({ query: { site, allMarkdownRemark } }) =>
+						allMarkdownRemark.edges.map(edge => ({
+							...edge.node.frontmatter,
+							description: edge.node.excerpt,
+							date: edge.node.frontmatter.date,
+							author: site.siteMetadata.author,
+							url: join(site.siteMetadata.siteUrl, edge.node.fields.slug),
+							guid: join(site.siteMetadata.siteUrl, edge.node.fields.slug),
+							custom_elements: [{ "content:encoded": edge.node.html }],
+						})),
+
+					query: `{
+						allMarkdownRemark(
+						sort: { order: DESC, fields: [frontmatter___date] },
+						) {
+							edges {
+								node {
+									excerpt
+									html
+									fields { slug }
+									frontmatter {
+										title
+										date
+									}
+								}
+							}
+						}
+					}`,
+					output: "/rss.xml",
+					title,
+				},
+			],
+		},
+	},
 	`gatsby-plugin-react-helmet`,
 	// this (optional) plugin enables Progressive Web App + Offline functionality
 	// To learn more, visit: https://gatsby.dev/offline
@@ -57,13 +109,12 @@ if (process.env.POST_DIR) {
 
 module.exports = {
 	siteMetadata: {
-		title: `Journal`,
-		author: {
-			name: `Mees van Dijk`,
-			email: `mees@mees.io`,
-			website: `https://mees.io`,
-		},
+		title,
+		author: `Mees van Dijk`,
+		email: `mees@mees.io`,
+		website: `https://mees.io`,
 		description,
+		siteUrl: process.env.SITE_URL || "",
 	},
 	plugins,
 }

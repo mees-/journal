@@ -9,11 +9,9 @@ const Footer = () => {
 				siteMetadata {
 					title
 					description
-					author {
-						email
-						name
-						website
-					}
+					author
+					email
+					website
 				}
 			}
 		}
@@ -22,8 +20,8 @@ const Footer = () => {
 	return (
 		<footer className={footer}>
 			<span>
-				Made by <a href="https://mees.io">{data.author.name}</a> {"<"}
-				{data.author.email}
+				Made by <a href="https://mees.io">{data.author}</a> {"<"}
+				{data.email}
 				{">"}
 			</span>
 		</footer>
