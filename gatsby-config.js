@@ -5,7 +5,7 @@ const plugins = [
 		resolve: `gatsby-source-filesystem`,
 		options: {
 			path: `${__dirname}/content/posts`,
-			name: `blog`,
+			name: `journal`,
 		},
 	},
 	{
@@ -50,7 +50,7 @@ if (process.env.POST_DIR) {
 		resolve: `gatsby-source-filesystem`,
 		options: {
 			path: process.env.POST_DIR,
-			name: `blog`,
+			name: `journal`,
 		},
 	})
 }
