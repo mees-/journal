@@ -22,9 +22,9 @@ const plugins = [
 		},
 	},
 	{
-		resolve: `gatsby-plugin-google-analytics`,
+		resolve: `gatsby-plugin-google-gtag`,
 		options: {
-			trackingId: process.env.GA_ID,
+			trackingIds: [process.env.GA_ID],
 		},
 	},
 	{
