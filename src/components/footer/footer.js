@@ -22,7 +22,7 @@ const Footer = () => {
 	return (
 		<footer className={footer}>
 			<span>
-				Made by <a href="https://mees.io">{data.author.name}</a> {"<"}
+				Made by <a href={data.author.website}>{data.author.name}</a> {"<"}
 				{data.author.email}
 				{">"}
 			</span>
